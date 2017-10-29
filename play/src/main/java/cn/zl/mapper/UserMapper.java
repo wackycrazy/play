@@ -13,13 +13,7 @@ import cn.zl.entity.User;
 @Mapper
 public interface UserMapper {
 
-	@Select("SELECT * FROM user")
-    @Results({
-        @Result(property = "age",  column = "age"),
-        @Result(property = "name", column = "name")
-    })
     List<User> getAll();
 
-    @Insert("INSERT INTO user(name,age) VALUES(#{name}, #{age})")
     void insert(User user);
 }
