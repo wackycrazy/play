@@ -21,9 +21,9 @@ public class UserMapperTest {
 
     @Test
     public void testInsert() throws Exception {
-        UserMapper.insert(new User("aa", 11));
+        UserMapper.insert(new User("bb", 22));
 
-        Assert.assertEquals(1, UserMapper.getAll().size());
+        Assert.assertEquals(2, UserMapper.getAll().size());
     }
 
     @Test
