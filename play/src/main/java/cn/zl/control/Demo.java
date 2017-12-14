@@ -17,7 +17,7 @@ public class Demo {
 	@RequestMapping(name="/he", method=RequestMethod.GET)
 	public String hello() {
 		
-		userMapper.insert(new User("bell", 10));
+		//userMapper.insert(new User("bell", 10));
 		return "hello";
 	}
 }
