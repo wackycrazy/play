@@ -10,13 +10,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import cn.zl.entity.User;
-import cn.zl.mapper.UserMapper;;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserMapperTest {
 	
-	@Autowired
+	/*@Autowired
     private UserMapper UserMapper;
 
     @Test
@@ -30,5 +29,5 @@ public class UserMapperTest {
     public void testQuery() throws Exception {
         List<User> users = UserMapper.getAll();
         System.out.println(users.toString());
-    }
+    }*/
 }

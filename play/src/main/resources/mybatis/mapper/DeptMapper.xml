@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zl.mapper.DeptMapper">
+  <resultMap id="BaseResultMap" type="cn.zl.entity.Dept">
+    <result column="deptno" jdbcType="DECIMAL" property="deptno" />
+    <result column="dname" jdbcType="VARCHAR" property="dname" />
+    <result column="loc" jdbcType="VARCHAR" property="loc" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.zl.entity.Dept">
+    insert into dept (deptno, dname, loc
+      )
+    values (#{deptno,jdbcType=DECIMAL}, #{dname,jdbcType=VARCHAR}, #{loc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.zl.entity.Dept">
+    insert into dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptno != null">
+        deptno,
+      </if>
+      <if test="dname != null">
+        dname,
+      </if>
+      <if test="loc != null">
+        loc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptno != null">
+        #{deptno,jdbcType=DECIMAL},
+      </if>
+      <if test="dname != null">
+        #{dname,jdbcType=VARCHAR},
+      </if>
+      <if test="loc != null">
+        #{loc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  	<!-- Select的flushCache默认为false -->
+    <!-- useCache默认为true,statementType默认为PREPARED -->
+    <!-- MyBatis结果集的映射规则就是使用column label(没有则直接使用column) -->
+    <!-- 去对应resultType里的property名字并赋值(除了使用resultMap手动控制映射) -->
+  <select id="getAll" resultMap="BaseResultMap"
+            flushCache="false" useCache="true" timeout="10000" statementType="PREPARED">
+  	select * from dept
+  </select>
+</mapper>

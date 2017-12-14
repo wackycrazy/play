@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zl.mapper.EmpMapper">
+  <resultMap id="BaseResultMap" type="cn.zl.entity.Emp">
+    <result column="empno" jdbcType="DECIMAL" property="empno" />
+    <result column="ename" jdbcType="VARCHAR" property="ename" />
+    <result column="job" jdbcType="VARCHAR" property="job" />
+    <result column="mgr" jdbcType="DECIMAL" property="mgr" />
+    <result column="hiredate" jdbcType="TIMESTAMP" property="hiredate" />
+    <result column="sal" jdbcType="DECIMAL" property="sal" />
+    <result column="comm" jdbcType="DECIMAL" property="comm" />
+    <result column="deptno" jdbcType="DECIMAL" property="deptno" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.zl.entity.Emp">
+    insert into emp (empno, ename, job, 
+      mgr, hiredate, sal, 
+      comm, deptno)
+    values (#{empno,jdbcType=DECIMAL}, #{ename,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, 
+      #{mgr,jdbcType=DECIMAL}, #{hiredate,jdbcType=TIMESTAMP}, #{sal,jdbcType=DECIMAL}, 
+      #{comm,jdbcType=DECIMAL}, #{deptno,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.zl.entity.Emp">
+    insert into emp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empno != null">
+        empno,
+      </if>
+      <if test="ename != null">
+        ename,
+      </if>
+      <if test="job != null">
+        job,
+      </if>
+      <if test="mgr != null">
+        mgr,
+      </if>
+      <if test="hiredate != null">
+        hiredate,
+      </if>
+      <if test="sal != null">
+        sal,
+      </if>
+      <if test="comm != null">
+        comm,
+      </if>
+      <if test="deptno != null">
+        deptno,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empno != null">
+        #{empno,jdbcType=DECIMAL},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="mgr != null">
+        #{mgr,jdbcType=DECIMAL},
+      </if>
+      <if test="hiredate != null">
+        #{hiredate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sal != null">
+        #{sal,jdbcType=DECIMAL},
+      </if>
+      <if test="comm != null">
+        #{comm,jdbcType=DECIMAL},
+      </if>
+      <if test="deptno != null">
+        #{deptno,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>
