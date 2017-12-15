@@ -1,14 +1,17 @@
 package cn.zl.control;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import cn.zl.entity.Dept;
-import cn.zl.entity.User;
 import cn.zl.mapper.DeptMapper;
 
 @RestController
@@ -17,16 +20,16 @@ public class Demo {
 	@Autowired
 	private DeptMapper deptMapper;
 	
-	@RequestMapping(name="/he", method=RequestMethod.GET)
-	public String hello() {
+	@RequestMapping(name="/heloHtml", method=RequestMethod.GET)
+	public String hello(HttpServletRequest request, Map<String,Object> map) {
 		
-		try {
+		/*try {
 			List<Dept> list = deptMapper.getAll();
-			System.out.println(list);
+			request.setAttribute("list", list);
 		}catch(Exception e) {
 			e.printStackTrace();
-		}
-		
-		return "hello";
+		}*/
+		 map.put("hello","from Demo.helloHtml"); 
+		 return"/helloHtml"; 
 	}
 }
