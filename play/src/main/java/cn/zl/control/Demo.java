@@ -25,13 +25,13 @@ public class Demo {
 	public String hello(HttpServletRequest request, Map<String,Object> map) {
 		
 		 map.put("hello","from Demo.helloHtml");
-		 return "/helloHtml"; 
+		 return "/index"; 
 	}
 	
 	@RequestMapping(value = "/world", method=RequestMethod.GET)
 	public String world(HttpServletRequest request, Map<String,Object> map) {
 		
 		 map.put("hello","from Demo.helloHtml");
-		 return "/helloHtml"; 
+		 return "/page/main"; 
 	}
 }

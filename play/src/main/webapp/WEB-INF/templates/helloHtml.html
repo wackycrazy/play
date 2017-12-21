@@ -1,0 +1,28 @@
+<!doctype html>
+<html html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Thyme Seed Starter Manager</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="../../script/layui/css/layui.css" th:href="@{/script/layui/css/layui.css}" />
+<script type="text/javascript" src="../../script/layui/layui.js" th:src="@{/script/layui/layui.js}"></script>
+<script type="text/javascript" src="../../script/jquery/jquery-3.2.1.js" th:src="@{/script/jquery/jquery-3.2.1.js}"></script>
+<script type="text/javascript">
+/* $(document).ready(function() {
+
+});
+//一般直接写在一个js文件中
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+  
+  //layer.msg('Hello World');
+
+});
+var device = layui.device(); */
+</script>
+</head>
+<body>
+	<h1 id="h1" th:inline="text">Hello.v.2</h1>
+	<p th:text="${hello}"></p>
+</body>
+</html>

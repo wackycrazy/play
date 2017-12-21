@@ -1,3 +1,10 @@
 eclipse.preferences.version=1
 encoding//src/main/resources/application.properties=UTF-8
+encoding//src/main/webapp/script/json/images.json=UTF-8
+encoding//src/main/webapp/script/json/linksList.json=UTF-8
+encoding//src/main/webapp/script/json/message.json=UTF-8
+encoding//src/main/webapp/script/json/newsList.json=UTF-8
+encoding//src/main/webapp/script/json/systemParameter.json=UTF-8
+encoding//src/main/webapp/script/json/userface.json=UTF-8
+encoding//src/main/webapp/script/json/usersList.json=UTF-8
 encoding/<project>=UTF-8
