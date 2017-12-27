@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
 	<title>layui后台管理模板</title>
-	<meta name="renderer" content="webkit">
+	<meta name="ctx" th:content="@{/}" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta http-equiv="Access-Control-Allow-Origin" content="*">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,15 +11,17 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="icon" href="favicon.ico">
-	<link rel="stylesheet" href="../../script/layui/css/layui.css" th:href="@{/script/layui/css/layui.css}" media="all" />
-	<link rel="stylesheet" href="../../css/font_eolqem241z66flxr.css" th:href="@{/css/font_eolqem241z66flxr.css}" media="all" />
-	<link rel="stylesheet" href="../../css/main.css" th:href="@{/css/main.css}" media="all" />
+	<link rel="stylesheet" th:href="@{/script/layui/css/layui.css}" media="all" />
+	<link rel="stylesheet" th:href="@{/css/font_eolqem241z66flxr.css}" media="all" />
+	<link rel="stylesheet" th:href="@{/css/main.css}" media="all" />
 	
-	<script type="text/javascript" src="../../script/jquery/jquery-3.2.1.js" th:src="@{/script/jquery/jquery-3.2.1.js}"></script>
-	<script type="text/javascript" src="../../script/layui/layui.js" th:src="@{/script/layui/layui.js}"></script>
-	<script type="text/javascript" src="../../script/js/nav.js" th:src="@{/script/js/nav.js}"></script>
-	<script type="text/javascript" src="../../script/js/leftNav.js" th:src="@{/script/js/leftNav.js}"></script>
-	<script type="text/javascript" src="../../script/js/index.js" th:src="@{/script/js/index.js}"></script>
+	<script type="text/javascript" th:src="@{/script/jquery/jquery-3.2.1.js}"></script>
+	<script type="text/javascript" th:src="@{/script/layui/layui.js}"></script>
+	<script type="text/javascript" th:src="@{/script/js/leftNav.js}"></script>
+	<script type="text/javascript" th:src="@{/script/js/index.js}"></script>
+	<script type="text/javascript">
+	
+	</script>
 </head>
 <body class="main_body">
 	<div class="layui-layout layui-layout-admin">
@@ -27,6 +29,8 @@
 		<div class="layui-header header">
 			<div class="layui-main">
 				<a href="#" class="logo">layui后台管理</a>
+				<!-- 显示/隐藏菜单 -->
+				<a href="javascript:;" class="iconfont hideMenu icon-menu1"></a>
 				<!-- 搜索 -->
 				<div class="layui-form component">
 			        <select name="modules" lay-verify="required" lay-search="">
@@ -61,7 +65,7 @@
 					<script>tpwidget("init", {
 					    "flavor": "slim",
 					    "location": "WX4FBXXFKE4F",
-					    "geolocation": "disabled",
+					    "geolocation": "enabled",
 					    "language": "zh-chs",
 					    "unit": "c",
 					    "theme": "chameleon",
@@ -70,7 +74,7 @@
 					    "alarmType": "badge",
 					    "color": "#FFFFFF",
 					    "uid": "U9EC08A15F",
-					    "hash": "14dff75e7253d3a8b9727522759f3455"
+					    "hash": "039da28f5581f4bcb5c799fb4cdfb673"
 					});
 					tpwidget("show");</script>
 			    </div>
@@ -80,10 +84,10 @@
 						<a href="javascript:;"><i class="iconfont icon-gonggao"></i><cite>系统公告</cite></a>
 					</li>
 			    	<li class="layui-nav-item" mobile>
-			    		<a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>设置</cite></a>
+			    		<a href="javascript:;" class="mobileAddTab" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>设置</cite></a>
 			    	</li>
 			    	<li class="layui-nav-item" mobile>
-			    		<a href="javascript:;"><i class="iconfont icon-loginout"></i> 退出</a>
+			    		<a href="page/login/login.html" class="signOut"><i class="iconfont icon-loginout"></i> 退出</a>
 			    	</li>
 					<li class="layui-nav-item lockcms" pc>
 						<a href="javascript:;"><i class="iconfont icon-lock1"></i><cite>锁屏</cite></a>
@@ -96,7 +100,8 @@
 						<dl class="layui-nav-child">
 							<dd><a href="javascript:;" data-url="page/user/userInfo.html"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
 							<dd><a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
-							<dd><a href="javascript:;"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
+							<dd><a href="javascript:;" class="changeSkin"><i class="iconfont icon-huanfu"></i><cite>更换皮肤</cite></a></dd>
+							<dd><a href="page/login/login.html" class="signOut"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
 						</dl>
 					</li>
 				</ul>
@@ -112,9 +117,19 @@
 		</div>
 		<!-- 右侧内容 -->
 		<div class="layui-body layui-form">
-			<div class="layui-tab marg0" lay-filter="bodyTab">
-				<ul class="layui-tab-title top_tab">
+			<div class="layui-tab marg0" lay-filter="bodyTab" id="top_tabs_box">
+				<ul class="layui-tab-title top_tab" id="top_tabs">
 					<li class="layui-this" lay-id=""><i class="iconfont icon-computer"></i> <cite>后台首页</cite></li>
+				</ul>
+				<ul class="layui-nav closeBox">
+				  <li class="layui-nav-item">
+				    <a href="javascript:;"><i class="iconfont icon-caozuo"></i> 页面操作</a>
+				    <dl class="layui-nav-child">
+					  <dd><a href="javascript:;" class="refresh refreshThis"><i class="layui-icon">&#x1002;</i> 刷新当前</a></dd>
+				      <dd><a href="javascript:;" class="closePageOther"><i class="iconfont icon-prohibit"></i> 关闭其他</a></dd>
+				      <dd><a href="javascript:;" class="closePageAll"><i class="iconfont icon-guanbi"></i> 关闭全部</a></dd>
+				    </dl>
+				  </li>
 				</ul>
 				<div class="layui-tab-content clildFrame">
 					<div class="layui-tab-item layui-show">
@@ -125,20 +140,10 @@
 		</div>
 		<!-- 底部 -->
 		<div class="layui-footer footer">
-			<p>copyright @2017 请叫我马哥 更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a>　　<a onclick="donation()" class="layui-btn layui-btn-danger l·ayui-btn-small">捐赠作者</a></p>
+			<p>copyright @2017 请叫我马哥　　<a onclick="donation()" class="layui-btn layui-btn-danger layui-btn-small">捐赠作者</a></p>
 		</div>
 	</div>
-
-	<!-- 锁屏 -->
-	<div class="admin-header-lock" id="lock-box" style="display: none;">
-		<div class="admin-header-lock-img"><img src="../../images/face.jpg"/></div>
-		<div class="admin-header-lock-name" id="lockUserName">请叫我马哥</div>
-		<div class="input_btn">
-			<input type="password" class="admin-header-lock-input layui-input" placeholder="请输入密码解锁.." name="lockPwd" id="lockPwd" />
-			<button class="layui-btn" id="unlock">解锁</button>
-		</div>
-		<p>请输入“123456”，否则不会解锁成功哦！！！</p>
-	</div>
+	
 	<!-- 移动导航 -->
 	<div class="site-tree-mobile layui-hide"><i class="layui-icon">&#xe602;</i></div>
 	<div class="site-mobile-shade"></div>

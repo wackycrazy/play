@@ -21,11 +21,19 @@ public class Demo {
 	@Autowired
 	private DeptMapper deptMapper;
 	
-	@RequestMapping(value = "/hello", method=RequestMethod.GET)
-	public String hello(HttpServletRequest request, Map<String,Object> map) {
+	@RequestMapping(value = "/login", method=RequestMethod.GET)
+	public String login(HttpServletRequest request, Map<String,Object> map) {
 		
 		 map.put("hello","from Demo.helloHtml");
-		 return "/index"; 
+		 return "/page/login/login"; 
+	}
+	
+	@RequestMapping(value = "/index", method=RequestMethod.POST)
+	public String hello(HttpServletRequest request, Map<String,Object> map) {
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		 map.put("hello","from Demo.helloHtml");
+		 return "index"; 
 	}
 	
 	@RequestMapping(value = "/world", method=RequestMethod.GET)
