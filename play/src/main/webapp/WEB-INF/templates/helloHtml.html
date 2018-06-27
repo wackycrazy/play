@@ -20,9 +20,40 @@ layui.use(['layer', 'form'], function(){
 });
 var device = layui.device(); */
 </script>
+
+<script th:inline="javascript">
+
+/*<![CDATA[*/
+
+var hello=[[${hello}]]  //获取session中的值
+
+if(!window.localStorage){
+    alert("浏览器支持localstorage");
+    //return;
+}else{
+    //主逻辑业务
+	var storage = window.localStorage;
+    storage["sessionId"] = hello.data;
+    console.log(storage["sessionId"]);
+}
+
+$.ajax({
+    type:'post',
+    url:'http://localhost:8011/demo/update?name=123',
+    dataType : 'json',
+    success: function(data) {
+        $("body").append(data);
+    },
+    beforeSend: function(xhr) {
+        xhr.setRequestHeader("sessionId", storage["sessionId"]);
+    }
+});
+/*]]>*/
+
+</script>
 </head>
 <body>
-	<h1 id="h1" th:inline="text">Hello.v.2</h1>
+	<h1 id="h1" th:inline="text">Hello</h1>
 	<p th:text="${hello}"></p>
 </body>
 </html>

@@ -18,8 +18,9 @@ public class WebTokenUtil {
 	
 	private static Key getKeyInstance() {
 		
-		SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.ES256;
-		byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary("AiDou");
+		//生成签名密钥
+		SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
+		byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary("eyJ0e");
 		Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
 		return signingKey;
 	}

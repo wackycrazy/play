@@ -21,8 +21,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public boolean updateById(Long userId, String name) {
-
-		int num = userMapper.updateName(userId, name);
+		int num = 0;
+		try{
+			num = userMapper.updateName(userId, name);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		if(num != 0) {
 			return true;
 		}else {
