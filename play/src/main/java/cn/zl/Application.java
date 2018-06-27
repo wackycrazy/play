@@ -1,5 +1,6 @@
 package cn.zl;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @SpringBootApplication
+@MapperScan("cn.zl.mapper")
 //@ComponentScan("cn.zl.control")
 public class Application {
 	
