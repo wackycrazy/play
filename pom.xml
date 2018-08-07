@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cn.zl</groupId>
@@ -11,19 +12,41 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.8.RELEASE</version>
+		<version>2.0.4.RELEASE</version>
+		<relativePath />
 	</parent>
-	<dependencies> 
+	<dependencies>
+		<!--<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-activemq</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		 <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency> 
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- springBoot 使用 thymeleaf模板-->
+		<!-- springBoot 使用 thymeleaf模板 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -34,11 +57,8 @@
 			<version>1.9.22</version>
 		</dependency>
 		<!-- springBoot 使用jsp -->
-		<!-- <dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<scope>provided</scope>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.apache.tomcat.embed</groupId> <artifactId>tomcat-embed-jasper</artifactId> 
+			<scope>provided</scope> </dependency> -->
 		<!-- 日志 -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -46,20 +66,24 @@
 			<version>1.2.3</version>
 		</dependency>
 
-		<!-- 验证器，不安装会报错 -->
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>5.3.5.Final</version>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
 		</dependency>
 
+
+		<!-- 验证器，不安装会报错 -->
+		<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-validator</artifactId> 
+			<version>5.3.5.Final</version> </dependency> -->
+
 		<!-- mysql -->
-		<dependency> 
-			<groupId>mysql</groupId> 
-			<artifactId>mysql-connector-java</artifactId> 
-			<version>5.1.5</version> 
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.5</version>
 		</dependency>
-			
+
 		<!-- mariadb -->
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
@@ -75,31 +99,28 @@
 		</dependency>
 
 		<!-- druid -->
-		<dependency> 
+		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>1.0.29</version>
 		</dependency>
-		
-		<!--fastjson-->
-	    <dependency>
-	      <groupId>com.alibaba</groupId>
-	      <artifactId>fastjson</artifactId>
-	      <version>1.2.5</version>
-	    </dependency>
 
+		<!--fastjson -->
 		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>2.8.10</version>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.5</version>
 		</dependency>
-		
-		 <!--JSON WEB TOKEN -->
-	    <dependency>
-	      <groupId>io.jsonwebtoken</groupId>
-	      <artifactId>jjwt</artifactId>
-	      <version>0.6.0</version>
-	    </dependency>
+
+		<!-- <dependency> <groupId>com.fasterxml.jackson.core</groupId> <artifactId>jackson-core</artifactId> 
+			<version>2.8.10</version> </dependency> -->
+
+		<!--JSON WEB TOKEN -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.6.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -117,15 +138,13 @@
 				<artifactId>mybatis-generator-maven-plugin</artifactId>
 				<version>1.3.5</version>
 				<dependencies>
-					<dependency> <groupId> mysql</groupId> 
-						<artifactId> mysql-connector-java</artifactId> 
-						<version>5.1.5</version> 
+					<dependency>
+						<groupId> mysql</groupId>
+						<artifactId> mysql-connector-java</artifactId>
+						<version>5.1.5</version>
 					</dependency>
-					<!-- <dependency>
-						<groupId>org.mariadb.jdbc</groupId>
-						<artifactId>mariadb-java-client</artifactId>
-						<version>1.5.8</version>
-					</dependency> -->
+					<!-- <dependency> <groupId>org.mariadb.jdbc</groupId> <artifactId>mariadb-java-client</artifactId> 
+						<version>1.5.8</version> </dependency> -->
 					<dependency>
 						<groupId>org.mybatis.generator</groupId>
 						<artifactId>mybatis-generator-core</artifactId>

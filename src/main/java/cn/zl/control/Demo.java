@@ -23,8 +23,8 @@ import cn.zl.service.UserService;
 import cn.zl.util.AuthUtil;
 import cn.zl.util.WebTokenUtil;
 
-@RestController
-//@Controller
+//@RestController
+@Controller
 @RequestMapping("/demo")
 public class Demo {
 
