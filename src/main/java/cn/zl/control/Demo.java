@@ -74,7 +74,7 @@ public class Demo {
 		}
 		/*map.put("hello", JSON.toJSON(dto));
 		return "/helloHtml";*/
-		return JSON.toJSONString(dto);
+		return "/page/login/login"; 
 	}
 	/*@RequestMapping(value = "/login", method=RequestMethod.GET)
 	public String login(HttpServletRequest request, Map<String,Object> map) {
